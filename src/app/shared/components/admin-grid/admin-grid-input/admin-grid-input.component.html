@@ -1,0 +1,8 @@
+<div class="input-container">
+    <input type="text" #filter (input)="search($event.target.value)"/>
+    <div>
+        <img src="{{svgPath}}" (click)="filter.value = clearSearch()"/>
+    </div>
+    <!-- <button>
+    </button> -->
+</div>

@@ -1,0 +1,17 @@
+<div style="width: 100%;height: 100%;">
+    <div class="add-work-sample-btn" (click)="create()">Create new WorkSample</div>
+
+    <admin-grid
+        class="list-work-sample-table"
+        [rows]="data"
+        configName="WorkSampleList"
+        [actionName]="'[WORKSAMPLE] GetWorkSamplesAction'"
+        (onSearch)="filterWorkSample($event)"
+        (onPageNumber)="pagination($event)"
+        [pageSize]="pageSize"
+        [totalItems]="totalItems"
+        [filterData]="filterModel"
+        (onSelect)="select($event)"
+    ></admin-grid>
+</div>
+

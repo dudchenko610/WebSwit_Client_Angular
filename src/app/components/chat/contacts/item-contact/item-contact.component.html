@@ -1,0 +1,34 @@
+<div
+    class="contact-user-item {{
+        currentContact && currentContact.user.id == contact.user.id
+            ? 'contact-user-item-picked'
+            : ''
+    }}"
+    (click)="pickContact()"
+>
+    <div class="contact-avatar-part">
+        <img *ngIf="!contact.user.pictureName" src="assets/img/png/user.png" />
+
+        <div *ngIf="contact.user.pictureName">
+            <img
+                *actionDispatchItem="
+                    ['[CONTACT] GetContactPictureAction'];
+                    stateIdentifier: contact.user.id;
+                    dispatchedBeforeRender: !contact.user.file;
+                    loaderType: componentType;
+                "
+                [src]="contact.user.file"
+            />
+        </div>
+    </div>
+
+    <div class="contact-info-part">
+        <div class="contact-name-surname">
+            <label>{{
+                contact.user.firstName + " " + contact.user.lastName
+            }}</label>
+        </div>
+
+        <label>Unread messages: {{ contact.unreadCount }}</label>
+    </div>
+</div>

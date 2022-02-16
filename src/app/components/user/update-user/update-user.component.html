@@ -1,0 +1,32 @@
+<div>
+    <form #form="ngForm">
+        <div>
+            <label>FirstName</label>
+            <input type="text" name="firstName" #firstName="ngModel" [(ngModel)]="updateModel.firstName" />
+        </div>
+        <div>
+            <label>LastName</label>
+            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="updateModel.lastName" />
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="updateModel.email" />
+        </div>
+        <div>
+            <label>PhoneNumber</label>
+            <input type="text" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="updateModel.phoneNumber" />
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" #password="ngModel" [(ngModel)]="updateModel.password" />
+        </div>
+        <div>
+            <label>ConfirmPassword</label>
+            <input type="password" name="confirmPassword" #confirmPassword="ngModel"
+                [(ngModel)]="updateModel.confirmPassword" />
+        </div>
+    </form>
+
+    <button (click)="update()">update</button>
+    <button (click)="cancel()">cancel</button>
+</div>

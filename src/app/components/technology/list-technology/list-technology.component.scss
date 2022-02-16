@@ -1,0 +1,14 @@
+$heightBtn: 60px;
+
+table {
+    width: 100%;
+}
+
+.list-technology-table {
+    display: block;
+    height: calc(100% - #{$heightBtn});
+}
+
+.add-technology-btn {
+    height: $heightBtn;
+}

@@ -1,0 +1,34 @@
+<form #form="ngForm">
+    <div>
+        <label>Email</label>
+        <input
+            name="email"
+            type="email"
+            #email="ngModel"
+            [(ngModel)]="loginModel.email"
+        />
+    </div>
+    <div>
+        <label>Password</label>
+        <input
+            name="password"
+            type="password"
+            #password="ngModel"
+            [(ngModel)]="loginModel.password"
+        />
+    </div>
+    <div>
+        <input
+            type="checkbox"
+            name="rememberMe"
+            #rememberMe="ngModel"
+            [(ngModel)]="loginModel.rememberMe"
+        />
+        Remember me?
+    </div>
+
+    <button (click)="signIn()">SignIn</button>
+</form>
+
+<!-- <button (click)="signOut()">SignOut</button> -->
+<a routerLink="/account/sign-up">signUp</a>

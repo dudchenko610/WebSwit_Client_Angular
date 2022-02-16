@@ -1,0 +1,11 @@
+<div *actionDispatchList="'[Order] ListOrderAction'">
+    <button (click)="create()">create</button>
+    <div *ngFor="let order of orders">
+        <p>
+            {{order.name}}
+            {{order.description}}
+            <button (click)="update(order)">update</button>
+            <button (click)="delete(order.id)">delete</button>
+        </p>
+    </div> 
+</div>

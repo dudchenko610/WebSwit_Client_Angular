@@ -1,0 +1,255 @@
+<div class="main-wrapper" (scroll)="onScroll($event)">
+    <div class="main-static-container">
+        <div class="background-image">
+            <div class="blackout" [ngStyle]="{ background: 'rgba(0, 0, 0,' + blackout + ')' }"></div>
+            <div class="header-title">
+                <h1 class="text-title">Improving innovations</h1>
+                <label class="sub-title">
+                    The team of professionals will be with you every step of the
+                    way, and build <br />
+                    accessible web, mobile or cloud applications according to
+                    the latest tech<br />
+                    trends and market requirements.
+                </label>
+                <div>
+                    <button (click)="scrollToElement('#about')" class="btn1">
+                        About Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-list-container" (scroll)="onScroll($event)" #mainListContainerVC>
+        <div id="services"></div>
+        <div id="main-services-id" class="main-list-content-services">
+            <div class="main-service-title">
+                <h1>Services we provide</h1>
+            </div>
+            <div class="main-service-list">
+                <div *ngFor="let category of categories; index as i" class="{{ categoryGridAnimateClass }} category"
+                    [ngStyle]="{ transitionDelay: i * 120 + 'ms' }">
+                    <div [innerHTML]="category.svgImage | keepHtml"></div>
+                    <h2>{{ category.name }}</h2>
+                    <div>{{ category.description }}</div>
+                </div>
+            </div>
+        </div>
+        <div id="about"></div>
+        <div id="main-about-us-id" class="main-about-us">
+            <h1 class="txt1">About Us</h1>
+
+            <label class="about-description">Our mission is to make a contribution to the development of
+                society by improving the business world through technological
+                solutions.</label>
+
+            <div class="about-us-skills">
+                <div class="list-opportunity">
+                    <ul>
+                        <li class="txt3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" viewBox="0 0 24 24">
+                                <path style="fill: #0c930a"
+                                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+                            </svg>
+                            Innovations
+                        </li>
+                        <li class="txt3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" viewBox="0 0 24 24">
+                                <path style="fill: #0c930a"
+                                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+                            </svg>
+                            Flexibility
+                        </li>
+                        <li class="txt3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="15" viewBox="0 0 24 24">
+                                <path style="fill: #0c930a"
+                                    d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z" />
+                            </svg>
+                            Perfectionism
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-us-description-opprtunities txt3">
+                    We are a web development company who provide agile<br />
+                    software development for your businesses. As our success<br />
+                    depends on clients' achievements, our developers work
+                    long<br />
+                    hours to reach the best results. This is our main rule in
+                    <br />
+                    providing mobile and web development services.
+                </div>
+            </div>
+        </div>
+        <div id="worksamples"></div>
+        <div id="main-work-samples-id" class="main-list-content-work-samples">
+            <div id="main-work-samples-label-id">
+                <h1 class="txt1">Work Samples</h1>
+            </div>
+            <div *ngFor="let workSample of workSamples; index as i" class="worksample">
+                <div class="{{ workSamplesAnimateClasses[i] }} ">
+                    <h2 (click)="openWorkSample(workSample)" class="txt2">
+                        {{ workSample.name }}
+                    </h2>
+                    <div class="txt3">{{ workSample.description }}</div>
+                </div>
+                <div>
+                    <div>
+                        <div *actionDispatchItem="
+                                [
+                                    '[MAIN] GetOnHomeByIdWorkSampleMainPictureAction'
+                                ];
+                                stateIdentifier: workSample.id;
+                                dispatchedBeforeRender: !workSample.file
+                            "></div>
+                    </div>
+                    <app-image [image]="workSample.mainPicture.file"></app-image>
+                </div>
+            </div>
+        </div>
+
+        <div id="tehnologies" style="height: 20px;"></div>
+        <div id="main-technologies-id" class="main-list-content-technologies">
+            <div class="title-block">
+                <h1 class="txt1">Technologies</h1>
+            </div>
+
+            <div class="tehnology-list">
+                <div>
+                    <h2>Server Technologies</h2>
+                    <div class="icon-technology">
+                        <div>
+                            <img src="assets/img/technologies/net.png" style="width: 100px; height: 100px" />
+                            <p>.NET/C#</p>
+                        </div>
+                        <div>
+                            <img src="assets/img/technologies/asp-net.png" style="width: 100px; height: 100px" />
+                            <p>ASP.NET</p>
+                        </div>
+                        <div>
+                            <img src="assets/img/technologies/ms-sql.png" style="width: 100px; height: 100px" />
+                            <p>MS SQL</p>
+                        </div>
+                        <div>
+                            <img src="assets/img/technologies/asp-net.png" style="width: 100px; height: 100px" />
+                            <p>ASP.NET Core</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2>User Experience</h2>
+                    <div class="icon-technology">
+                        <div>
+                            <img src="assets/img/technologies/javascript.png" style="width: 100px; height: 100px" />
+                            <p>JavaScript</p>
+                        </div>
+                        <div>
+                            <img src="assets/img/technologies/vue.png" style="width: 100px; height: 100px" />
+                            <p>Vue.js</p>
+                        </div>
+                        <div>
+                            <img src="assets/img/technologies/angular.png" style="width: 100px; height: 100px" />
+                            <p>Angular</p>
+                        </div>
+                        <div>
+                            <img src="assets/img/technologies/typescript.png" style="width: 100px; height: 100px" />
+                            <p>TypeScript</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2>Mobile Development</h2>
+                    <div class="icon-technology">
+                        <div>
+                            <img src="assets/img/technologies/ionic.png" style="width: 100px; height: 100px" />
+                            <p>Ionic</p>
+                        </div>
+                        <div>
+                            <img src="assets/img/technologies/android.png" style="width: 100px; height: 100px" />
+                            <p>Android</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2>Cloud Technologies</h2>
+                    <div class="icon-technology">
+                        <div>
+                            <img src="assets/img/technologies/azure.png" style="width: 100px; height: 100px" />
+                            <p>Microsoft Azure</p>
+                        </div>
+                        <div>
+                            <img src="assets/img/technologies/google.png" style="width: 100px; height: 100px" />
+                            <p>Google Cloud Platform</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="contacts" style="height: 10px;"></div>
+        <div id="main-proposal-id" class="main-list-content-proposal">
+            <div>
+                <div class="main-proposal-header">
+                    <h1 class="txt1">Get In Touch with Us!</h1>
+                </div>
+
+                <form #f="ngForm" class="main-proposal-form" (submit)="createProposal()">
+                    <div class="fields-form">
+                        <div class="left-side-form">
+                            <input class="input-form" placeholder="Name" name="Name" #name="ngModel" required
+                                [(ngModel)]="createProposalModel.name" />
+                            <input class="input-form" placeholder="Phone" name="phoneNumber" #phoneNumber="ngModel" required
+                                [(ngModel)]="createProposalModel.phoneNumber" />
+                            <input class="input-form" placeholder="Email" name="email" #email="ngModel" required emailAdress
+                                [(ngModel)]="createProposalModel.email" />
+                        </div>
+                        <div class="right-side-form">
+                            <textarea class="input-form" rows="5" placeholder="Message" name="message" required
+                                #message="ngModel" [(ngModel)]="createProposalModel.message"></textarea>
+                        </div>
+                    </div>
+                    <div class="main-contact-us-button">
+                        <button class="btn1" [disabled]="f.invalid">
+                            Contact Us
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="main-footer">
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <img src="assets/img/svg/websvit-logo.svg" />
+                </div>
+                <div class="inner-links">
+                    <ul>
+                        <li><a (click)="scrollToElement('#services')">Services</a></li>
+                        <li><a (click)="scrollToElement('#about')">About Us</a></li>
+                        <li><a (click)="scrollToElement('#worksamples')">Work Samples</a></li>
+                        <li><a (click)="scrollToElement('#tehnologies')">Tehnologies</a></li>
+                        <li><a (click)="scrollToElement('#contacts')">Contacts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-details">
+                <div class="footer-menu">
+                    <p>
+                        <label class="contact-email">websvit.dev@gmail.com</label><br/>
+                        <label class="contact-phone">+38 050 758 18 82</label>
+                    </p>
+
+                    <label class="contct-addres">Sumskaya Street, 61000, UA</label>
+
+                </div>
+                <div class="footer-links">
+                    <label>&#169; 2022 WebSvIT Ltd. Allrights reserved.</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- *actionDispatchItem="
+                            ['[MAIN] GetOnHomeByIdWorkSampleMainPictureAction'];
+                            stateIdentifier: workSample.id;
+                            dispatchedBeforeRender: !workSample.file
+                        " -->

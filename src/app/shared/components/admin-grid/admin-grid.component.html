@@ -1,0 +1,87 @@
+<ngx-datatable
+    #adminGrid
+    [rows]="
+        rows
+            | paginate
+                : {
+                      id: 'list_pagination',
+                      itemsPerPage: pageSize,
+                      currentPage: pageNumber,
+                      totalItems: totalItems
+                  }
+    "
+    [columns]="columns"
+    [action]="actionName"
+    [footerHeight]="60"
+>
+    <ngx-datatable-column
+        *ngFor="let column of columns"
+        [name]="column.name"
+        [prop]="column.prop"
+        [width]="column.width"
+        [resizeable]="column.resizeable"
+        [minWidth]="column.minWidth"
+    >
+        <ng-template ngx-datatable-header-template>
+            <div class="admin-grid-header">
+                <div class="column-name">{{ column.name }}</div>
+            </div>
+            <div class="admin-grid-filter-container" *ngIf="options.filterRow">
+                <div *ngIf="!column.filterType" class="admin-filter-none">
+                    <div class="admin-grid-filter"></div>
+                </div>
+
+                <div
+                    *ngIf="column.filterType?.name === 'search'"
+                    class="filter-search"
+                >
+                    <div style="display: flex; height: 30px">
+                        <admin-grid-input
+                            (onSearch)="search($event, column.prop)"
+                        ></admin-grid-input>
+                    </div>
+                </div>
+
+                <div
+                    *ngIf="column.filterType === 'select'"
+                    class="filter-select"
+                >
+                    <ng-select
+                        appendTo="body"
+                        [items]="getSelectFilterData(column.prop)"
+                        bindLabel="name"
+                        bindValue="id"
+                        placeholder="Select"
+                        (change)="selectValue(column.prop, $event)"
+                    ></ng-select>
+                </div>
+            </div>
+        </ng-template>
+
+        <ng-template
+            let-row="row"
+            let-value="value"
+            class="admin-grid-body"
+            ngx-datatable-cell-template
+        >
+            <div>{{ value }}</div>
+
+            <div *ngIf="column.prop == 'action'" class="grid-action-buttons">
+                <div *ngFor="let item of column.button">
+                    <admin-grid-button
+                        [name]="item.name"
+                        (click)="selected(row, item.name)"
+                    ></admin-grid-button>
+                </div>
+            </div>
+        </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-footer class="admin-grid-pagination">
+        <ng-template ngx-datatable-footer-template>
+            <pagination-controls
+                id="list_pagination"
+                (pageChange)="pageChange($event)"
+            ></pagination-controls>
+        </ng-template>
+    </ngx-datatable-footer>
+</ngx-datatable>

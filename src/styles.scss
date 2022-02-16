@@ -1,0 +1,26 @@
+/* You can add global styles to this file, and also import other style files */
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+@import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+@import "../node_modules/font-awesome/scss/font-awesome.scss";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+/*custom css*/
+@import "./app/global-css/admin-grid.scss";
+@import "./app/global-css/input.scss";
+@import "./app/global-css/spiner.scss";
+@import "./app/global-css/button.scss";
+@import "./app/global-css/text.scss";
+@import "./app/global-css/popup.scss";
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Helvetica, sans-serif;
+    & a {
+        text-decoration: none;
+    }
+}
+
+

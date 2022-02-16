@@ -1,0 +1,39 @@
+<div *actionDispatchList="'[CATEGORY] GetAllCategoriesAction'">
+    <form #form="ngForm">
+        <div>
+            <label>Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="createModel.name"/>
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" name="description" #description="ngModel" [(ngModel)]="createModel.description"/>
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="number" name="price" #price="ngModel" [(ngModel)]="createModel.price"/>
+        </div>
+        <div>
+            <label>StartOfProject</label>
+            <input type="date" name="startOfProject" #startOfProject="ngModel" [(ngModel)]="createModel.startOfProject"/>
+        </div>
+        <div>
+            <label>EndOfProject</label>
+            <input type="date" name="endOfProject" #endOfProject="ngModel" [(ngModel)]="createModel.endOfProject"/>
+        </div>
+        <div>
+            <label>Estimate</label>
+            <input type="date" name="estimate" #estimate="ngModel" [(ngModel)]="createModel.estimate"/>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Select role</mat-label>
+                <mat-select name="categoryId" #roleId="ngModel"   [(ngModel)]="createModel.categoryId">
+                    <mat-option [value]="category.id" *ngFor="let category of categories">{{category.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+
+    <button (click)="create()">create</button>
+    <button (click)="cancel()">cancel</button>
+</div>

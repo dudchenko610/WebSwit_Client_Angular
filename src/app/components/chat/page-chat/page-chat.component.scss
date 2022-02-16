@@ -1,0 +1,18 @@
+.chatting-tab-content-wrapper {
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+
+.chatting-tab-content-contacts {
+    width: 23%;
+    height: 100%;
+}
+
+.chatting-tab-content-messages {
+    width: 76.5%;
+    height: 100%;
+}

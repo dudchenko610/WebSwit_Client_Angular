@@ -1,0 +1,31 @@
+.app-container{
+    height: 100%;
+    position: relative;
+    overflow-y: hidden;
+    
+    & .header {
+        position: absolute;
+        top:0;
+        left:0;
+        right: 0;
+        z-index: 1;
+        background-color: white;
+    }
+    
+    & .main {
+        position: absolute;
+        width: 100%;
+        top: 80px;
+        bottom: 0;
+        background-color: white;
+    }
+
+    & .footer {
+        width: 100%;
+        position: absolute;
+        bottom:0;
+        left:0;
+        z-index: 999;
+        background-color: white;
+    }
+}

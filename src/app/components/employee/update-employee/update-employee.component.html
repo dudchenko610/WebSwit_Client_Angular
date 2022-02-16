@@ -1,0 +1,35 @@
+<div *actionDispatchList="'[RoleEmployee] GetAllRoleEmployeeAction'">
+    <form #form="ngForm">
+        <div>
+            <label>FirstName</label>
+            <input type="text" name="firstName" #firstName="ngModel" [(ngModel)]="updateModel.firstName"/>
+        </div>
+        <div>
+            <label>LastName</label>
+            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="updateModel.lastName"/>
+        </div>
+        <div>
+            <label>Email</label>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="updateModel.email"/>
+        </div>
+        <div>
+            <label>PhoneNumber</label>
+            <input type="text" name="phoneNumber" #phoneNumber="ngModel" [(ngModel)]="updateModel.phoneNumber"/>
+        </div>
+        <div>
+            <label>Description</label>
+            <textarea type="text" name="description" #description="ngModel" [(ngModel)]="updateModel.description"></textarea>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Select role</mat-label>
+                <mat-select name="roleId" #roleId="ngModel" [(ngModel)]="updateModel.roleIds" multiple>
+                    <mat-option [value]="role.id" *ngFor="let role of roles">{{role.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+
+    <button (click)="update()">update</button>
+    <button (click)="cancel()">cancel</button>
+</div>

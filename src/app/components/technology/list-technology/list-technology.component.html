@@ -1,0 +1,18 @@
+<div style="width: 100%;height: 100%;">
+    <button class="add-technology-btn" mat-button color="primary" (click)="create()">
+        Create new Technology
+    </button>
+
+    <admin-grid
+        class="list-technology-table"
+        [rows]="technologies"
+        configName="TechnologyList"
+        [actionName]="'[TECHNOLOGY] GetTechnologiesAction'"
+        (onSearch)="filterTechnology($event)"
+        (onPageNumber)="pagination($event)"
+        [pageSize]="pageSize"
+        [totalItems]="totalItems"
+        [filterData]="filterModel"
+        (onSelect)="select($event)"
+    ></admin-grid>
+</div>

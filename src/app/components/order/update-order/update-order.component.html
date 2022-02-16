@@ -1,0 +1,39 @@
+<div *actionDispatchList="'[CATEGORY] GetAllCategoriesAction'">
+    <form #form="ngForm">
+        <div>
+            <label>Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="updateModel.name"/>
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" name="description" #description="ngModel" [(ngModel)]="updateModel.description"/>
+        </div>
+        <div>
+            <label>Price</label>
+            <input type="number" name="price" #price="ngModel" [(ngModel)]="updateModel.price"/>
+        </div>
+        <div>
+            <label>StartOfProject</label>
+            <input type="date" name="startOfProject" #startOfProject="ngModel" [ngModel]="updateModel.startOfProject | date:'yyyy-MM-dd'" (ngModelChange)="updateModel.startOfProject=$event"/>
+        </div>
+        <div>
+            <label>EndOfProject</label>
+            <input type="date" name="endOfProject" #endOfProject="ngModel" [ngModel]="updateModel.endOfProject | date:'yyyy-MM-dd'" (ngModelChange)="updateModel.endOfProject=$event"/>
+        </div>
+        <div>
+            <label>Estimate</label>
+            <input type="date" name="estimate" #estimate="ngModel" [ngModel]="updateModel.estimate | date:'yyyy-MM-dd'" (ngModelChange)="updateModel.estimate=$event"/>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Select category</mat-label>
+                <mat-select name="categoryId" #roleId="ngModel"   [(ngModel)]="updateModel.categoryId">
+                    <mat-option [value]="category.id" *ngFor="let category of categories">{{category.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+
+    <button (click)="update()">update</button>
+    <button (click)="cancel()">cancel</button>
+</div>

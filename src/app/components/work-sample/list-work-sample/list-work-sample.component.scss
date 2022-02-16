@@ -1,0 +1,14 @@
+$heightBtn: 60px;
+
+table {
+    width: 100%;
+}
+
+.list-work-sample-table {
+    display: block;
+    height: calc(100% - #{$heightBtn});
+}
+
+.add-work-sample-btn {
+    height: $heightBtn;
+}

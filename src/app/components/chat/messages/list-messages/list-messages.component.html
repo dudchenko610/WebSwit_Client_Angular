@@ -1,0 +1,33 @@
+<div class="messages-panel">
+    <div
+        #messagesContainer
+        class="messages-panel-wrapper"
+        (scroll)="onScroll($event)"
+    >
+        <div class="loader-wrapper">
+            <div
+                *actionDispatchList="
+                    '[MESSAGE] GetInitialFilteredMessagesAction';
+                    displayBeforeRender: false
+                "
+            ></div>
+        </div>
+
+        <app-item-message
+            *ngFor="let item of messages"
+            class="messages-panel-item-wrapper-{{
+                meUser.id == item.authorUserId ? 'my' : 'opposite'
+            }}"
+            [message]="item"
+        ></app-item-message>
+
+        <app-item-message-loader
+            *ngIf="messages.length && hasMore"
+            class="messages-panel-get-filtered-loader"
+        ></app-item-message-loader>
+    </div>
+    <app-send-message
+        *ngIf="currentContact"
+        class="messages-panel-send-message-wrapper"
+    ></app-send-message>
+</div>

@@ -1,0 +1,9 @@
+.backdropBackground {
+    background-color: #00000001;
+    backdrop-filter: blur(4px);
+}
+
+.dialogPanel > mat-dialog-container {
+    background:none!important;
+    box-shadow: none;
+}

@@ -1,0 +1,14 @@
+<div style="width: 100%; height: 100%">
+    <admin-grid
+        class="list-proposal-table"
+        [rows]="data"
+        configName="ProposalList"
+        [actionName]="'[PROPOSAL] GetProposalsAction'"
+        (onSearch)="filterProposal($event)"
+        (onPageNumber)="pagination($event)"
+        [pageSize]="pageSize"
+        [totalItems]="totalItems"
+        [filterData]="filterModel"
+        (onSelect)="selected($event)"
+    ></admin-grid>
+</div>

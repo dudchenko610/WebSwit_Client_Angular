@@ -1,0 +1,11 @@
+<button (click)="create()">create</button>
+<admin-grid
+        class="role-employee-table"
+        [rows]="roleEmployees"
+        configName="RoleEmployeeList"
+        [actionName]="'[RoleEmployee] ListRoleEmployeeAction'"
+        (onPageNumber)="pagination($event)"
+        [pageSize]="pageSize"
+        [totalItems]="totalItems"
+        (onSelect)="select($event)"
+    ></admin-grid>

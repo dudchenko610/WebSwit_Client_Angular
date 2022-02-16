@@ -1,0 +1,48 @@
+<div *actionDispatchList="'[TECHNOLOGY] GetAllTechnologiesAction'">
+    <div *ngIf="workSampleModel" class="work-sample-item-list">
+        <div>
+            <label>Name</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="updateWorkSampleModel.name"/>
+        </div>
+        <div>
+            <label>Description</label>
+            <input type="text" name="description" #description="ngModel" [(ngModel)]="updateWorkSampleModel.description"/>
+        </div>
+        <div>
+            <mat-form-field>
+                <mat-label>Select technology</mat-label>
+                <mat-select name="technologyId" #technologyId="ngModel" [(ngModel)]="updateWorkSampleModel.technologyId" single>
+                    <mat-option [value]="technology.id" *ngFor="let technology of technologies">{{technology.name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-checkbox [(ngModel)]="updateWorkSampleModel.showOnHome">
+                Show On Home
+            </mat-checkbox>
+        </div>
+        
+        <button (click)="update()">update</button>
+        <button (click)="cancel()">cancel</button>
+
+        <button (click)="createPicture(workSampleModel.id)">add picture</button>
+    
+        <div *ngFor="let pictureModel of workSampleModel.pictures">
+            <div 
+                class="{{workSampleModel.mainPictureId==pictureModel.id ? 'work-sample-main-picture':''}}"
+                (click)="setMainPicture(pictureModel.id)"
+                *actionDispatchItem="
+                    [
+                        '[WORK_SAMPLE_PICTURE] GetByIdWorkSamplePictureAction',
+                        '[WORK_SAMPLE_PICTURE] DeleteWorkSamplePictureAction'
+                    ];
+                    stateIdentifier: pictureModel.id;
+                    dispatchedBeforeRender: !pictureModel.uploaded
+                "
+            >
+                <app-image class="image-bounds" [image]="pictureModel.file"></app-image>
+            </div>
+            <button (click)="deletePicture(pictureModel.id)">delete</button>
+        </div>
+    </div>
+</div> 

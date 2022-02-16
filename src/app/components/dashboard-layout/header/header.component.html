@@ -1,0 +1,79 @@
+<div class="header-container" (click)="hideHelperUser($event)">
+    <div class="logo">
+        <!-- <img src="" /> -->
+        <a [routerLink]="['/']"><img src="assets/img/svg/websvit-logo.svg" /></a>
+
+    </div>
+    <div class="menu">
+        <div class="about-us-button">
+            <button *ngIf="isAuth" class="sign-in-button">
+                <a [routerLink]="['account/sign-in']">Sign-in</a>
+            </button>
+            <button (click)="scrollToElement('#about')" class="about-us">About Us</button>
+        </div>
+        <div class="burger" (click)="openModalMenu()">
+
+            <div class="burger-button">
+                <div class="buttons" *ngIf="!isModalMenu">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-navigation">
+            <ul>
+                <!-- <li><a [routerLink]="['/']">Home</a></li> -->
+                <li><a (click)="scrollToElement('#services')">Services</a></li>
+                <li><a (click)="scrollToElement('#about')">About Us</a></li>
+                <li><a (click)="scrollToElement('#worksamples')">Work Samples</a></li>
+                <li><a (click)="scrollToElement('#tehnologies')">Tehnologies</a></li>
+                <li><a (click)="scrollToElement('#contacts')">Contacts</a></li>
+                <li>
+                    <button (click)="scrollToElement('#about')" class="btn1">About Us</button>
+                </li>
+                <button *ngIf="isAuth" [routerLink]="['account/sign-in']" class="sign-in-button">
+                    <a>Sign-in</a>
+                </button>
+                <li *ngIf="isAuth" class="user-profile">
+                    <a class="profile" (click)="showHelperUser()" tabindex="-1">
+                        <img *ngIf="!userModel.file" src="assets/img/png/user.png" />
+                        <img *ngIf="userModel.file" [src]="userModel.file" />
+                    </a>
+                    <div class="helper-user" *ngIf="isHelperUser">
+                        <div (click)="profile()">
+                            <img *ngIf="!userModel.file" src="assets/img/png/user.png" />
+                            <img *ngIf="userModel.file" [src]="userModel.file" />
+                            <lable class="helper-profile">Profile</lable>
+                        </div>
+                        <div (click)="chat()">
+                            <img src="assets/img/png/chat.png" class="chat-img" />
+                            <lable class="helper-chat">Chat</lable>
+                        </div>
+                        <div (click)="signOut()">
+                            <img src="assets/img/png/logout.png" class="sign-out-img" />
+                            <label class="helper-sign-out">Sign-Out</label>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isModalMenu">
+    <div class="close" (click)="openModalMenu()">
+        <img src="assets/img/png/close.png" />
+    </div>
+    <div class="modal-menu">
+        <ul>
+            <li><a [routerLink]="['/']" (click)="openModalMenu()">Home</a></li>
+            <li><a (click)="scrollToElement('#services')">Services</a></li>
+            <li><a (click)="scrollToElement('#about')">About Us</a></li>
+            <li><a (click)="scrollToElement('#worksamples')">Work Samples</a></li>
+            <li><a (click)="scrollToElement('#tehnologies')">Tehnologies</a></li>
+            <li><a (click)="scrollToElement('#contacts')">Contacts</a></li>
+        </ul>
+    </div>
+</div>

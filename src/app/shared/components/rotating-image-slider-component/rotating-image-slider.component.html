@@ -1,0 +1,56 @@
+<div class="rotating-image-slider-container">
+    <div
+        [ngStyle]="{
+            width: imageModels.length * 100 + '%',
+            transform: 'translateX(' + offset + '%)'
+        }"
+    >
+        <div
+            class="rotating-image-slider-item-container"
+            *ngFor="let imageModel of imageModels"
+        >
+            <div class="rotating-image-slider-item-loader">
+                <div
+                    *actionDispatchItem="
+                        [imageModel.action];
+                        stateIdentifier: imageModel.stateIdentifier;
+                        dispatchedBeforeRender: !imageModel.image
+                    "
+                ></div>
+            </div>
+
+            <app-image
+                class="rotating-image-slider-item-image"
+                [image]="imageModel.image"
+            ></app-image>
+        </div>
+    </div>
+    <div class="rotating-slider-btn-container">
+        <div class="arrow-ctn">
+            <img
+                class="arrow arrow-left"
+                *ngIf="counter"
+                (click)="onPreviousClick()"
+                src="assets/img/png/slider_prev_arrow_active.png"
+            />
+            <img
+                class="arrow-left"
+                *ngIf="!counter"
+                src="assets/img/png/slider_prev_arrow_disabled.png"
+            />
+        </div>
+        <div class="arrow-ctn">
+            <img
+                class="arrow"
+                *ngIf="counter != imageModels.length - 1"
+                (click)="onNextClick()"
+                src="assets/img/png/slider_next_arrow_active.png"
+            />
+
+            <img
+                *ngIf="counter == imageModels.length - 1"
+                src="assets/img/png/slider_next_arrow_disabled.png"
+            />
+        </div>
+    </div>
+</div>

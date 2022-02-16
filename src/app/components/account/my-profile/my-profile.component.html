@@ -1,0 +1,25 @@
+<div>
+    <div>{{ userModel.id }}</div>
+    <div>{{ userModel.firstName }}</div>
+    <div>{{ userModel.lastName }}</div>
+    <div>{{ userModel.email }}</div>
+    <div>{{ userModel.phoneNumber }}</div>
+
+    <div *ngIf="userModel.file">
+        <img class="image-bounds" [src]="userModel.file" />
+        <button (click)="deletePicture()">delete picture</button>
+    </div>
+    <button (click)="update()">update</button>
+
+    <div *ngIf="isAdmin">
+        <div [routerLink]="['/category/list']">Categories</div>
+        <div [routerLink]="['/technology/list']">Technologies</div>
+        <div [routerLink]="['/work-sample/list']">WorkSamples</div>
+        <div [routerLink]="['/user/list']">Users</div>
+        <div [routerLink]="['/proposal/list']">Proposals</div>
+        _____________ToBeDeprecated_____________________
+        <div [routerLink]="['/employee/list']">Employees</div>
+        <div [routerLink]="['/role-employee/list']">Employee roles</div>
+        <div [routerLink]="['/order/list']">Orders</div>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+.message-item-container {
+    // border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+}
+
+.message-item-creation-time {
+    font-size: 12px;
+}
+
+.message-item-error-btn {
+    font-size: 12px;
+}
+
+.message-item-state-read-unread-container {
+    /*  border: 1px solid red;*/
+    display: flex;
+    justify-content: space-between;
+}
+
+.here-message-loader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

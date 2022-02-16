@@ -1,0 +1,45 @@
+<div *actionDispatchList="'[TECHNOLOGY] GetAllTechnologiesAction'">
+    <div>
+        <label>Name</label>
+        <input
+            type="text"
+            name="name"
+            #name="ngModel"
+            [(ngModel)]="createWorkSampleModel.name"
+        />
+    </div>
+    <div>
+        <label>Description</label>
+        <input
+            type="text"
+            name="description"
+            #description="ngModel"
+            [(ngModel)]="createWorkSampleModel.description"
+        />
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Select technology</mat-label>
+            <mat-select
+                name="technologyId"
+                #technologyId="ngModel"
+                [(ngModel)]="createWorkSampleModel.technologyId"
+                single
+            >
+                <mat-option
+                    [value]="technology.id"
+                    *ngFor="let technology of technologies"
+                    >{{ technology.name }}</mat-option
+                >
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-checkbox [(ngModel)]="createWorkSampleModel.showOnHome">
+            Show On Home
+        </mat-checkbox>
+    </div>
+
+    <button (click)="create()">create</button>
+    <button (click)="cancel()">cancel</button>
+</div>

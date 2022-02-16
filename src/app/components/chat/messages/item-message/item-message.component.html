@@ -1,0 +1,22 @@
+<div class="message-item-container">
+    <div class="message-item-content">
+        {{ message.content }}
+    </div>
+    <div class="message-item-state-read-unread-container">
+        <div
+            class="here-message-loader"
+            *actionDispatchItem="
+                ['[MESSAGE] SendMessageAction'];
+                stateIdentifier: message.lastUpdate;
+                dispatchedBeforeRender: !message.id;
+                loaderType: componentType
+            "
+        >
+            <label class="message-item-creation-time">{{
+                getTime(message)
+            }}</label>
+            <div *ngIf="messageState && messageState.isRead">+</div>
+            <div *ngIf="messageState && !messageState.isRead">-</div>
+        </div>
+    </div>
+</div>

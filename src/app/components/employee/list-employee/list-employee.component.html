@@ -1,0 +1,15 @@
+<button (click)="create()">create</button>
+
+<admin-grid
+    class="employee-table"
+    [rows]="employees"
+    configName="EmployeeList"
+    [actionName]="'[Employee] ListEmployeeAction'"
+    (onSearch)="filterEmployee($event)"
+    (onPageNumber)="pagination($event)"
+    [pageSize]="pageSize"
+    [totalItems]="totalItems"
+    [filterData]="filterModel"
+    (onSelect)="select($event)"
+></admin-grid>
+

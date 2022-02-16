@@ -1,0 +1,17 @@
+<div>
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" #name="ngModel" [(ngModel)]="createCategoryModel.name"/>
+    </div>
+    <div>
+        <label>Description</label>
+        <input type="text" name="description" #description="ngModel" [(ngModel)]="createCategoryModel.description"/>
+    </div>
+    <div>
+        <label>SVG Image</label>
+        <input type="text" name="svgImage" #svgImage="ngModel" [(ngModel)]="createCategoryModel.svgImage"/>
+    </div>
+    
+    <button (click)="create()">create</button>
+    <button (click)="cancel()">cancel</button>
+</div> 

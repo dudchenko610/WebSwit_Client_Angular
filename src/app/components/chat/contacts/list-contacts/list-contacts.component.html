@@ -1,0 +1,15 @@
+<div class="chat-panel-wrapper">
+    <app-item-contact
+        *ngFor="let item of contacts"
+        [contact]="item"
+    ></app-item-contact>
+
+    <div class="loader-wrapper">
+        <div
+            *actionDispatchList="
+                '[CONTACT] GetAllContactsAction';
+                displayBeforeRender: false
+            "
+        ></div>
+    </div>
+</div>

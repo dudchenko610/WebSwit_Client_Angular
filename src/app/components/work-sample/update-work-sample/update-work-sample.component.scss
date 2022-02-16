@@ -1,0 +1,18 @@
+
+.image-bounds {
+    display: block;
+    width: 300px;
+    height: 300px;
+}
+
+.work-sample-item-list {
+    width: 100%;
+    max-height: 500px;
+    overflow-y: auto;
+
+    @import "src/app/global-css/scroll.scss";
+}
+
+.work-sample-main-picture {
+    border: 1px solid black;
+}

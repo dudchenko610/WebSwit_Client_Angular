@@ -1,0 +1,12 @@
+<admin-grid
+    class="list-user-table"
+    [rows]="users"
+    configName="UserList"
+    [actionName]="'[User] ListUserAction'"
+    (onSearch)="filterUser($event)"
+    (onPageNumber)="pagination($event)"
+    [pageSize]="pageSize"
+    [totalItems]="totalItems"
+    [filterData]="filterModel"
+    (onSelect)="selected($event)"
+></admin-grid>
